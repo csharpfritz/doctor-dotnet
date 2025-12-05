@@ -4,13 +4,24 @@ A comprehensive CLI application for analyzing the health of .NET repositories, i
 
 ## 🚀 Quick Start
 
-### Build
+### Option 1: Docker (Recommended)
+```bash
+# Build container
+.\build-docker.ps1  # Windows
+./build-docker.sh   # Linux/macOS
+
+# Run
+docker run --rm codemedic:latest --help
+docker run --rm -v ${PWD}:/repo codemedic:latest health /repo
+```
+
+### Option 2: Local Build
 ```bash
 cd src/CodeMedic
 dotnet build
 ```
 
-### Run
+### Run Locally
 ```bash
 codemedic --help
 codemedic --version
@@ -20,8 +31,10 @@ dotnet run -- --help
 ## 📖 Documentation
 
 - **User Guide:** `user-docs/cli_quick_reference.md`
+- **Docker Guide:** `user-docs/docker_usage.md`
 - **Technical Guide:** `doc/cli_skeleton_implementation.md`
 - **Architecture & Extension:** `doc/cli_architecture.md`
+- **Docker Implementation:** `doc/docker_implementation.md`
 - **Test Results:** `doc/cli_skeleton_test_results.md`
 
 ## ✨ Features
@@ -29,6 +42,7 @@ dotnet run -- --help
 - ✅ Help system with command reference
 - ✅ Version information display
 - ✅ Cross-platform support (Windows, macOS, Linux)
+- ✅ Docker containerization with automated versioning
 - ✅ Rich formatted console output
 - ✅ Proper error handling with exit codes
 - ✅ Extensible architecture for future commands

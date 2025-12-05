@@ -1,0 +1,74 @@
+# .dockerignore for CodeMedic
+# Excludes unnecessary files from Docker build context
+
+# Build outputs
+**/bin/
+**/obj/
+**/publish/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE and editor files
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Documentation (not needed in runtime)
+doc/
+user-docs/
+*.md
+!README.md
+
+# Test files
+test/
+**/Test.*/
+
+# Scripts (not needed in runtime)
+*.ps1
+*.sh
+*.cmd
+!build-docker.ps1
+!build-docker.sh
+!build-docker.cmd
+
+# Docker files themselves
+Dockerfile*
+.dockerignore
+
+# Package restore files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NuGet packages (restored during build)
+*.nupkg
+*.snupkg
+.nuget/
+
+# Test and coverage results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.trx
+*.coverage
+*.coveragexml
+
+# Misc
+*.log
+*.tmp
+.env
+.env.*
