@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace CodeMedic.Abstractions.Plugins;
 
 /// <summary>
@@ -24,4 +26,28 @@ public class CommandRegistration
     /// Gets or sets example usage strings for help text.
     /// </summary>
     public string[]? Examples { get; init; }
+
+    /// <summary>
+    /// Gets or sets the command arguments specification.
+    /// </summary>
+    public CommandArgument[]? Arguments { get; init; }
 }
+
+/// <summary>
+/// Represents a command-line argument specification.
+/// </summary>
+/// <param name="Description">The description of what this argument does.</param>
+/// <param name="ShortName">The short name of the argument (e.g., "p" for "-p").</param>
+/// <param name="LongName">The long name of the argument (e.g., "path" for "--path").</param>
+/// <param name="IsRequired">Whether this argument is required.</param>
+/// <param name="HasValue">Whether this argument takes a value.</param>
+/// <param name="DefaultValue">The default value for this argument.</param>
+/// <param name="ValueName">The value type name for help display (e.g., "path", "format", "count").</param>
+public record CommandArgument(
+    string Description,
+    string? ShortName = null,
+    string? LongName = null,
+    bool IsRequired = false,
+    bool HasValue = true,
+    string? DefaultValue = null,
+    string? ValueName = null);
