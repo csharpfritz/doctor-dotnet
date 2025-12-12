@@ -309,8 +309,8 @@ public class BomAnalysisPlugin : IAnalysisEnginePlugin
                 latestVersionDisplay = "Current";
             }
 
-            // Truncate package names if too long to improve table formatting
-            var displayName = package.Name.Length > 25 ? package.Name.Substring(0, 22) + "..." : package.Name;
+            // Keep full package names/licenses for report accuracy.
+            var displayName = package.Name;
             
             // Shorten source type and commercial status for better formatting
             var sourceType = package.SourceType == "Open Source" ? "Open" : 
@@ -320,8 +320,7 @@ public class BomAnalysisPlugin : IAnalysisEnginePlugin
             var commercial = package.Commercial == "Unknown" ? "?" : 
                            package.Commercial == "Yes" ? "Y" : "N";
             
-            // Truncate license if too long
-            var license = package.License?.Length > 12 ? package.License.Substring(0, 9) + "..." : package.License ?? "Unknown";
+            var license = package.License ?? "Unknown";
 
             packagesTable.AddRow(
                 displayName,
